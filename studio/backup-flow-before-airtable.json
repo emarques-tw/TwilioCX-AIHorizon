@@ -1,0 +1,308 @@
+[
+  {
+    "sid": "FW0388c149d03a6246acb026ae8ff2b120",
+    "accountSid": "ACfaccba27826f9096f4c38ec657c25cc0",
+    "authorSid": "UScb888a86ed43e739d88c6dcb0b6f184a",
+    "friendlyName": "Twilio CX & AI Horizon",
+    "definition": {
+      "description": "A New Flow",
+      "flags": {
+        "allow_concurrent_calls": true
+      },
+      "initial_state": "Trigger",
+      "states": [
+        {
+          "name": "Trigger",
+          "properties": {
+            "offset": {
+              "x": -86,
+              "y": 0
+            }
+          },
+          "transitions": [
+            {
+              "event": "incomingMessage",
+              "next": "twilio_cx_ai_horizon_00_inicio"
+            },
+            {
+              "event": "incomingCall"
+            },
+            {
+              "event": "incomingConversationMessage"
+            },
+            {
+              "event": "incomingRequest",
+              "next": "twilio_cx_ai_horizon_00_inicio"
+            },
+            {
+              "event": "incomingParent"
+            }
+          ],
+          "type": "trigger"
+        },
+        {
+          "name": "twilio_cx_ai_horizon_02_cafe",
+          "properties": {
+            "channel": "{{trigger.message.ChannelSid}}",
+            "content_sid": "HX568ad81903f900984b06ca7b8c93769d",
+            "from": "{{flow.channel.address}}",
+            "message_type": "content_template",
+            "offset": {
+              "x": 612,
+              "y": 206
+            },
+            "service": "{{trigger.message.InstanceSid}}",
+            "timeout": "3600"
+          },
+          "transitions": [
+            {
+              "event": "incomingMessage",
+              "next": "twilio_cx_ai_horizon_05_listo"
+            },
+            {
+              "event": "timeout"
+            },
+            {
+              "event": "deliveryFailure"
+            }
+          ],
+          "type": "send-and-wait-for-reply"
+        },
+        {
+          "name": "twilio_cx_ai_horizon_03_aromatica",
+          "properties": {
+            "channel": "{{trigger.message.ChannelSid}}",
+            "content_sid": "HX643fb8b5502a6b3d1f06ad586e66a175",
+            "from": "{{flow.channel.address}}",
+            "message_type": "content_template",
+            "offset": {
+              "x": 919,
+              "y": 200
+            },
+            "service": "{{trigger.message.InstanceSid}}",
+            "timeout": "3600"
+          },
+          "transitions": [
+            {
+              "event": "incomingMessage",
+              "next": "twilio_cx_ai_horizon_05_listo"
+            },
+            {
+              "event": "timeout"
+            },
+            {
+              "event": "deliveryFailure"
+            }
+          ],
+          "type": "send-and-wait-for-reply"
+        },
+        {
+          "name": "twilio_cx_ai_horizon_04_proteina",
+          "properties": {
+            "channel": "{{trigger.message.ChannelSid}}",
+            "content_sid": "HX6c8ee3a95508ef03d4b20b47ad31dcc9",
+            "from": "{{flow.channel.address}}",
+            "message_type": "content_template",
+            "offset": {
+              "x": 1239,
+              "y": 201
+            },
+            "service": "{{trigger.message.InstanceSid}}",
+            "timeout": "3600"
+          },
+          "transitions": [
+            {
+              "event": "incomingMessage",
+              "next": "twilio_cx_ai_horizon_05_listo"
+            },
+            {
+              "event": "timeout"
+            },
+            {
+              "event": "deliveryFailure"
+            }
+          ],
+          "type": "send-and-wait-for-reply"
+        },
+        {
+          "name": "twilio_cx_ai_horizon_05_listo",
+          "properties": {
+            "body": "Gracias!",
+            "channel": "{{trigger.message.ChannelSid}}",
+            "content_sid": "HX22a49e69b329d448a3395debbedfca1a",
+            "content_variables": [
+              {
+                "key": "1",
+                "value": "Twilio CX & AI Horizon"
+              },
+              {
+                "key": "2",
+                "value": "jueves 26 de noviembre"
+              },
+              {
+                "key": "3",
+                "value": "6:30pm"
+              },
+              {
+                "key": "4",
+                "value": "Osaka"
+              }
+            ],
+            "from": "{{flow.channel.address}}",
+            "message_type": "content_template",
+            "offset": {
+              "x": 819,
+              "y": 667
+            },
+            "service": "{{trigger.message.InstanceSid}}",
+            "to": "{{contact.channel.address}}"
+          },
+          "transitions": [
+            {
+              "event": "sent"
+            },
+            {
+              "event": "failed"
+            }
+          ],
+          "type": "send-message"
+        },
+        {
+          "name": "twilio_cx_ai_horizon_00_inicio",
+          "properties": {
+            "channel": "{{trigger.message.ChannelSid}}",
+            "content_sid": "HX683cea07692b8217ce36bd1f4bb8d8d3",
+            "content_variables": [
+              {
+                "key": "1",
+                "value": "Twilio CX & AI Horizon"
+              }
+            ],
+            "from": "{{flow.channel.address}}",
+            "message_type": "content_template",
+            "offset": {
+              "x": -43,
+              "y": 171
+            },
+            "service": "{{trigger.message.InstanceSid}}",
+            "timeout": "3600"
+          },
+          "transitions": [
+            {
+              "event": "incomingMessage",
+              "next": "twilio_cx_ai_horizon_01_arrancar_tu_manana"
+            },
+            {
+              "event": "timeout"
+            },
+            {
+              "event": "deliveryFailure"
+            }
+          ],
+          "type": "send-and-wait-for-reply"
+        },
+        {
+          "name": "twilio_cx_ai_horizon_01_arrancar_tu_manana",
+          "properties": {
+            "channel": "{{trigger.message.ChannelSid}}",
+            "content_sid": "HXba69805c8f79df2b8cdbd48243373cee",
+            "from": "{{flow.channel.address}}",
+            "message_type": "content_template",
+            "offset": {
+              "x": -47,
+              "y": 420
+            },
+            "service": "{{trigger.message.InstanceSid}}",
+            "timeout": "3600"
+          },
+          "transitions": [
+            {
+              "event": "incomingMessage",
+              "next": "decision"
+            },
+            {
+              "event": "timeout"
+            },
+            {
+              "event": "deliveryFailure"
+            }
+          ],
+          "type": "send-and-wait-for-reply"
+        },
+        {
+          "name": "decision",
+          "properties": {
+            "input": "{{widgets.twilio_cx_ai_horizon_01_arrancar_tu_manana.inbound.Body}}",
+            "offset": {
+              "x": 675,
+              "y": -1
+            }
+          },
+          "transitions": [
+            {
+              "event": "noMatch"
+            },
+            {
+              "conditions": [
+                {
+                  "arguments": [
+                    "{{widgets.twilio_cx_ai_horizon_01_arrancar_tu_manana.inbound.Body}}"
+                  ],
+                  "friendly_name": "If value equal_to Café",
+                  "type": "equal_to",
+                  "value": "Café"
+                }
+              ],
+              "event": "match",
+              "next": "twilio_cx_ai_horizon_02_cafe"
+            },
+            {
+              "conditions": [
+                {
+                  "arguments": [
+                    "{{widgets.twilio_cx_ai_horizon_01_arrancar_tu_manana.inbound.Body}}"
+                  ],
+                  "friendly_name": "If value equal_to Aromática",
+                  "type": "equal_to",
+                  "value": "Aromática"
+                }
+              ],
+              "event": "match",
+              "next": "twilio_cx_ai_horizon_03_aromatica"
+            },
+            {
+              "conditions": [
+                {
+                  "arguments": [
+                    "{{widgets.twilio_cx_ai_horizon_01_arrancar_tu_manana.inbound.Body}}"
+                  ],
+                  "friendly_name": "If value equal_to Proteína",
+                  "type": "equal_to",
+                  "value": "Proteína"
+                }
+              ],
+              "event": "match",
+              "next": "twilio_cx_ai_horizon_04_proteina"
+            }
+          ],
+          "type": "split-based-on"
+        }
+      ]
+    },
+    "status": "published",
+    "revision": 170,
+    "commitMessage": "Published Flow",
+    "valid": true,
+    "errors": [],
+    "warnings": [],
+    "dateCreated": "2026-11-11T18:33:30.000Z",
+    "dateUpdated": "2026-11-12T19:19:40.000Z",
+    "webhookUrl": "https://webhooks.twilio.com/v1/Accounts/ACfaccba27826f9096f4c38ec657c25cc0/Flows/FW0388c149d03a6246acb026ae8ff2b120",
+    "url": "https://studio.twilio.com/v2/Flows/FW0388c149d03a6246acb026ae8ff2b120",
+    "links": {
+      "executions": "https://studio.twilio.com/v2/Flows/FW0388c149d03a6246acb026ae8ff2b120/Executions",
+      "revisions": "https://studio.twilio.com/v2/Flows/FW0388c149d03a6246acb026ae8ff2b120/Revisions",
+      "test_users": "https://studio.twilio.com/v2/Flows/FW0388c149d03a6246acb026ae8ff2b120/TestUsers"
+    }
+  }
+]

@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/components/addcontactmodal.tsx","./src/components/contactdetail.tsx","./src/components/contactstable.tsx","./src/components/launchmodal.tsx","./src/components/passcodegate.tsx","./src/components/statusbadge.tsx"],"version":"5.9.3"}
